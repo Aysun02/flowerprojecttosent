@@ -1,0 +1,31 @@
+﻿@using Fiorello.Models
+@model Category
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+
+                        <p class="card-description">
+                            Delete Category
+                        </p>
+
+                        <span>TITLE:</span>
+                        <span>@Model.Title</span>
+
+                        <br />
+                        <br />
+
+                        <form method="post" asp-action="deletecomponent" asp-controller="category" asp-area="admin" asp-route-id="@Model.Id">
+                            <button onclick="confirm('I you sure?')" class="btn btn-danger"><img style="width:35px; height:35px;" src="~/admin/images/trash.png" /></button>
+                            <button>
+                                <a class="btn btn-light" asp-action="index" asp-controller="category" asp-area="admin"><img style="width:30px; height:30px;" src="~/admin/images/close.png" /></a>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@using Fiorello.ViewModels
+@model ProductIndexViewModel
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Categories</h4>
+                        <a class="btn btn-primary" asp-action="create" asp-controller="product" asp-area="admin">Add Product</a>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Description</th>
+                                        <th>Quantity</th>
+                                        <th>Weight</th>
+                                        <th>Dimension</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Photo</th>
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var product in Model.Products)
+                                    {
+                                        <tr>
+                                            <td>@product.Id</td>
+                                            <td>@product.Name</td>
+                                            <td>@product.Price</td>
+                                            <td>@Html.Raw(@product.Description)</td>
+                                            <td>@product.Quantity</td>
+                                            <td>@product.Weight</td>
+                                            <td>@product.Dimenesion</td>
+                                            <td>@product.Category.Title</td>
+                                            <td>@product.Status</td>
+                                            <td>
+                                                <img src="~/assets/img/@product.MainPhotoName"> </td>
+                                            <td class="d-flex">
+                                                <a class="btn btn-primary" style="color:antiquewhite" asp-action="update" asp-controller="product" asp-area="admin" asp-route-id="@product.Id">Update</a>
+                                                <a class="btn btn-danger" style="color:antiquewhite" asp-action="delete" asp-controller="product asp-area="admin" asp-route-id="@product.Id">Delete</a>
+                                                <a class="btn btn-info" style="background-color:green" asp-action="details" asp-controller="product" asp-area="admin" asp-route-id="@product.Id">Details</a>
+                                            </td>
+                                           
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>.
+            </div>
+        </div>
+    </div>
+</div>
